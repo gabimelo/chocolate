@@ -7,6 +7,7 @@ package chocolate;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -28,13 +29,17 @@ public class Chocolate {
             sql = "SELECT * FROM cliente";
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
-            
-            System.out.println(rs.getRow());
-            
+            rs.first();
+            try {
+                System.out.println(rs.getString("nome"));
+            }
+            catch (SQLException e) {
+                System.out.println("aqui ó");
+            }
         }
         catch (Exception e) {
             System.out.println("Erro ao conectar ao banco de dados");
-        }
+        }        
     }
     
 }
