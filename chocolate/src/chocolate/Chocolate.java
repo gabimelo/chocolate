@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package chocolate;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -16,6 +19,22 @@ public class Chocolate {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        String sql;
+        try {
+            Connection conn = MyConnection.getConnection();
+            Statement stmt = null;
+            ResultSet rs = null;
+            
+            sql = "SELECT * FROM cliente";
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            
+            System.out.println(rs.getRow());
+            
+        }
+        catch (Exception e) {
+            System.out.println("Erro ao conectar ao banco de dados");
+        }
     }
     
 }
