@@ -34,7 +34,7 @@ public class Chocolate {
                 System.out.println(rs.getString("nome"));
             }
             catch (SQLException e) {
-                System.out.println("aqui ó");
+                System.out.println("Erro ao buscar dados no banco de dados");
             }
         }
         catch (Exception e) {
