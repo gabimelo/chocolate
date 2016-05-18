@@ -12,9 +12,21 @@ import java.sql.*;
  */
 public class DAOCliente {
     private String sql;
-    public long salvar (Cliente cliente) throws SQLException{
-        try {} 
-        catch (Exception e) {}
+    public void save (Cliente cliente) throws SQLException{
+        try {
+            Connection conn = MyConnection.getConnection();
+            Statement stmt = null;
+            ResultSet rs = null;
+            // need to add check for update, delete or insert
+            sql = "INSERT INTO cliente(nome,senha,endereco,telefone) VALUES ('" + cliente.getNome() + "', '" + cliente.getSenha() + "', '" + cliente.getEndereco() + "', '" + cliente.getTelefone() + "') ";
+            stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+            stmt.close();
+        } 
+        catch (Exception e) {
+            System.out.println(e);
+            throw new SQLException("Erro ao criar cliente");
+        }
     }
     
 }
