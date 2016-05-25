@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chocolate;
+package modelo;
 
 /**
  *
@@ -12,9 +12,31 @@ package chocolate;
 public class Cliente {
     private int id;
     private String nome;
+    private String sobrenome;
+    private String cpf;
     private String senha;
     private String endereco;
     private String telefone;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
     
     public int getId() {
         return id;
