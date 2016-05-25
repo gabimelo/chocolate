@@ -10,15 +10,15 @@ package modelo;
  * @author gabriela
  */
 public class Cliente {
-    private int id;
+    private String id;
     private String nome;
     private String sobrenome;
     private String cpf;
     private String senha;
     private String endereco;
     private String telefone;
-
-    public void setId(int id) {
+    
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -38,7 +38,7 @@ public class Cliente {
         this.cpf = cpf;
     }
     
-    public int getId() {
+    public String getId() {
         return id;
     }
 

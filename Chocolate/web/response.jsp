@@ -11,8 +11,27 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body><jsp:useBean id="mybean" scope="session" class="org.mypackage.hello.NameHandler" />
-        <jsp:setProperty name="mybean" property="name" />
-        <h1>Hello, <jsp:getProperty name="mybean" property="name" />!</h1>
+    <body>
+        <%@ page import="java.io.*,java.util.*,java.sql.*"%>
+        <%@ page import="modelo.Cliente, DAO.DAOCliente, connection.MyConnection" %>
+        
+        <jsp:useBean id="mybean" scope="session" class="modelo.Cliente" />
+        <jsp:setProperty name="mybean" property="id" />
+        
+        <% 
+            DAOCliente DAO = new DAOCliente();
+            mybean = DAO.findById(mybean);
+        %>
+        
+        
+        <p>
+            <jsp:getProperty name="mybean" property="id" />
+        </p>
+        <p><jsp:getProperty name="mybean" property="nome" /></p>
+        <p><jsp:getProperty name="mybean" property="sobrenome" /></p>
+        <p><jsp:getProperty name="mybean" property="cpf" /></p>
+        <p><jsp:getProperty name="mybean" property="senha" /></p>
+        <p><jsp:getProperty name="mybean" property="endereco" /></p>
+        <p><jsp:getProperty name="mybean" property="telefone" /></p>
     </body>
 </html>

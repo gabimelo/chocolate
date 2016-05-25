@@ -21,33 +21,14 @@
         </form>-->
         <%@ page import="java.io.*,java.util.*,java.sql.*"%>
         <%@ page import="modelo.Cliente, DAO.DAOCliente, connection.MyConnection" %>
-        <%
-String sql;
-try {
-    Connection conn = MyConnection.getConnection();
-}
-catch (Exception e) {
-	out.println(e.getMessage());
-}
-try {
-    Connection conn = MyConnection.getConnection();
-    Statement stmt = null;
-    ResultSet rs = null;
-    
-    sql = "SELECT * FROM cliente";
-    stmt = conn.createStatement();
-    rs = stmt.executeQuery(sql);
-    rs.first();
-    try {
-        out.println(rs.getString("nome"));
-    }
-    catch (SQLException e) {
-        out.println("Erro ao buscar dados no banco de dados");
-    }
-}
-catch (Exception e) {
-    out.println("Erro ao conectar ao banco de dados");
-}
-%>        
+        
+        <form name="Client ID Form" action="response.jsp">
+            Enter your ID:
+            <input type="" name="id" value="" />
+            <input type="submit" value="OK" />
+        </form>
+        
+        <p><a href="mensagem.jsp" /> Enviar uma mesagem!
+        </p>
     </body>
 </html>

@@ -46,7 +46,7 @@ public class DAOCliente {
                 stmt = conn.createStatement();
                 rs = stmt.executeQuery(sql);
                 if (rs != null && rs.next()) {
-                    cliente.setId(rs.getInt(1));
+                    cliente.setId(Integer.toString(rs.getInt(1)));
                 }
                 rs.close();
                 stmt.close();
@@ -58,7 +58,8 @@ public class DAOCliente {
                         + ", cpf = '" + cliente.getCpf() + "', '" 
                         + ", senha = '" + cliente.getSenha() + "', '" 
                         + ", endereco = '"+ cliente.getEndereco() + "', '" 
-                        + ", telefone = '"+ cliente.getTelefone() + "') ";
+                        + ", telefone = '"+ cliente.getTelefone() + "') "
+                        + "WHERE idcliente = " + cliente.getId() + " ";
                 stmt = conn.createStatement();
                 stmt.execute(sql);
                 stmt.close();                
@@ -66,7 +67,7 @@ public class DAOCliente {
         }
         catch (Exception e) {
             System.out.println(e);
-            throw new SQLException("Erro ao criar cliente");
+            throw new SQLException("Erro ao salvar cliente");
         }
     }
     public void delete(Cliente cliente) throws SQLException {
@@ -74,8 +75,8 @@ public class DAOCliente {
             Connection conn = MyConnection.getConnection();
             Statement stmt = null;
             
-            sql = "DELETE FROM cliente WHERE idcliente = '" 
-                        + cliente.getId() + "' ";
+            sql = "DELETE FROM cliente WHERE idcliente = " 
+                        + cliente.getId() + " ";
             stmt = conn.createStatement();
             stmt.execute(sql);
             stmt.close();
@@ -86,6 +87,31 @@ public class DAOCliente {
         }
     }
     
-//    public void retrieve(Cliente cliente) throws SQLException
+     public Cliente findById(Cliente cliente) throws SQLException {
+        try {
+            Connection conn = MyConnection.getConnection();
+            Statement stmt = null;
+            ResultSet rs = null;
+            
+            sql = "SELECT * FROM cliente WHERE idcliente = " 
+                       + cliente.getId() + " ";
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            if (rs != null && rs.next()) {
+                cliente.setNome(rs.getString(2));
+                cliente.setSobrenome(rs.getString(3));
+                cliente.setCpf(rs.getString(4));
+                cliente.setSenha(rs.getString(5));
+                cliente.setEndereco(rs.getString(6));
+                cliente.setTelefone(rs.getString(7));
+            }
+            rs.close();
+            stmt.close();
+            return cliente;
+        }
+        catch (Exception e) {
+             throw new SQLException("Erro ao buscar cliente");
+        }
+    }
     
 }
