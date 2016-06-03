@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Chocolate</title>
     </head>
     <body>
 <!--        <h1>Entry Form</h1>
@@ -19,16 +19,16 @@
 
             <input type="submit" value="OK" />
         </form>-->
-        <%@ page import="java.io.*,java.util.*,java.sql.*"%>
-        <%@ page import="modelo.Cliente, DAO.DAOCliente, connection.MyConnection" %>
+        <%--<%@ page import="java.io.*,java.util.*,java.sql.*"%>--%>
+        <%--<%@ page import="modelo.Cliente, DAO.DAOCliente, connection.MyConnection" %>--%>
         
-        <form name="Client ID Form" action="response.jsp">
+<!--        <form name="Client ID Form" action="response.jsp">
             Enter your ID:
-            <input type="" name="id" value="" />
+            <input type="text" name="id" value="" />
             <input type="submit" value="OK" />
-        </form>
+        </form>-->
         
-        <p><a href="mensagem.jsp" /> Enviar uma mesagem!
-        </p>
+        <p><a href="cadastro.jsp" /> Cadastre-se!</p>
+        <p><a href="faq.jsp" /> Duvidas? </p>
     </body>
 </html>

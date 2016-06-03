@@ -28,7 +28,6 @@ public class DAOCliente {
                 qtd = rs.getInt(1);
             }
             rs.close();
-            stmt.close();
             if (qtd == 0){
                 sql = "INSERT INTO cliente"
                         + "(nome,sobrenome,cpf,senha,endereco,telefone) VALUES ('" 
@@ -38,7 +37,12 @@ public class DAOCliente {
                         + cliente.getSenha() + "', '" 
                         + cliente.getEndereco() + "', '" 
                         + cliente.getTelefone() + "') ";
-                stmt.execute(sql);
+                try {
+                    stmt.execute(sql);
+                }
+                catch (Exception e){
+                    System.out.println(e);
+                }
                 stmt.close();
                 
                 sql = "SELECT idcliente FROM cliente WHERE cpf = '" 

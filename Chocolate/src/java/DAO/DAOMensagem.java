@@ -28,7 +28,6 @@ public class DAOMensagem {
                 qtd = rs.getInt(1);
             }
             rs.close();
-            stmt.close();
             if (qtd == 0){
                 sql = "INSERT INTO mensagem"
                         + "(nome,email,mensagem) VALUES ('" 
