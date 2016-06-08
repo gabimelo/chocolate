@@ -28,7 +28,17 @@
             <input type="submit" value="OK" />
         </form>-->
         
-        <p><a href="cadastro.jsp" /> Cadastre-se!</p>
+<%
+String myname =  (String)session.getAttribute("cliente");
+        
+        if(myname!=null)
+            {
+             out.println("Olá  "+myname+"  , <a href=\"logout.jsp\" >Logout</a>");
+            }
+%>
+
+<p><a href="login.jsp" /> Login</p>        
+<p><a href="cadastro.jsp" /> Cadastre-se!</p>
         <p><a href="faq.jsp" /> Duvidas? </p>
     </body>
 </html>
