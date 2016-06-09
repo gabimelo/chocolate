@@ -96,7 +96,7 @@ public class DAOAdministrador {
             return administrador;
         }
         catch (Exception e) {
-             throw new SQLException("Erro ao buscar administrador");
+             throw new SQLException("Erro ao buscar tipo");
         }
     }
 }
