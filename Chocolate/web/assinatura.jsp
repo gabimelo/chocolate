@@ -13,6 +13,21 @@
     </head>
     <body>
         <h1>Assinatura</h1>
+        <%
+            String usernameCliente =  (String)session.getAttribute("cliente");
+            String usernameAdm  = (String)session.getAttribute("administrador");
+            if(usernameCliente == null) { 
+                out.println("<p>Faça <a href=\"login.jsp\"> login </a> primeiro</p>");
+            }
+            else {
+                if (usernameAdm != null) {
+                    out.println("<p>Você é um administrador, gerencie "
+                            + "assinaturas de clientes na "
+                            + "<a href=\"administrador.jsp\"> "
+                            + "página administrativa</a></p>");
+                }
+                else {
+        %>
         <form name="Assinatura Form" action="confirmacao_assinatura.jsp">
             Selecione o tipo de chocolate:
             Ao leite:
@@ -28,5 +43,10 @@
             <input type="radio" name="procedencia" value="importado" />            
             <input type="submit" value="Assinar" />
         </form>
+        <%
+                }
+            }
+        %>
+        
     </body>
 </html>

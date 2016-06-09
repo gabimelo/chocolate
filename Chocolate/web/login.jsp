@@ -13,6 +13,11 @@
     </head>
     <body>
         <h1>Login</h1>
+        <%
+            String usernameCliente =  (String)session.getAttribute("cliente");
+            String usernameAdm  = (String)session.getAttribute("administrador");
+            if(usernameCliente == null && usernameAdm == null) { 
+        %>
         <form name="Login Form" action="confirmacao_login.jsp">
             Username:
             <input type="text" name="username" value="" />
@@ -20,5 +25,12 @@
             <input type="text" name="senha" value="" />
             <input type="submit" value="Enviar" />
         </form>
+        <p> Não possui login? Faça já seu <a href="cadastro.jsp"> cadastro </a></p>
+        <%
+            }
+            else{
+                out.println("Você já está logado");
+            }
+        %>
     </body>
 </html>

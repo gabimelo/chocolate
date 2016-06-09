@@ -10,16 +10,16 @@ package modelo;
  * @author gabriela
  */
 public class Administrador {
-    private String id;
+    private String username;
     private String nome;
     private String senha;
 
-    public String getId() {
-        return id;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getNome() {

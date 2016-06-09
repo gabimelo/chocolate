@@ -21,7 +21,7 @@ public class DAOCliente {
             ResultSet rs = null;
             
             int qtd = 0;
-            sql = "SELECT count(*) FROM cliente WHERE idcliente = " + cliente.getId() + " ";
+            sql = "SELECT count(*) FROM cliente WHERE username = '" + cliente.getUsername() + "' ";
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             if (rs != null && rs.next()) {
@@ -29,8 +29,8 @@ public class DAOCliente {
             }
             rs.close();
             if (qtd == 0){
-                sql = "INSERT INTO cliente"
-                        + "(nome,sobrenome,cpf,senha,endereco,telefone) VALUES ('" 
+                sql = "INSERT INTO cliente VALUES ('" 
+                        + cliente.getUsername() + "', '"
                         + cliente.getNome() + "', '" 
                         + cliente.getSobrenome() + "', '" 
                         + cliente.getCpf() + "', '" 
@@ -44,16 +44,6 @@ public class DAOCliente {
                     System.out.println(e);
                 }
                 stmt.close();
-                
-                sql = "SELECT idcliente FROM cliente WHERE cpf = '" 
-                        + cliente.getCpf() + "' ";
-                stmt = conn.createStatement();
-                rs = stmt.executeQuery(sql);
-                if (rs != null && rs.next()) {
-                    cliente.setId(Integer.toString(rs.getInt(1)));
-                }
-                rs.close();
-                stmt.close();
             }
             else {
                 sql = "UPDATE cliente SET "
@@ -63,7 +53,7 @@ public class DAOCliente {
                         + ", senha = '" + cliente.getSenha() + "', '" 
                         + ", endereco = '"+ cliente.getEndereco() + "', '" 
                         + ", telefone = '"+ cliente.getTelefone() + "') "
-                        + "WHERE idcliente = " + cliente.getId() + " ";
+                        + "WHERE username = '" + cliente.getUsername() + "' ";
                 stmt = conn.createStatement();
                 stmt.execute(sql);
                 stmt.close();                
@@ -79,8 +69,8 @@ public class DAOCliente {
             Connection conn = MyConnection.getConnection();
             Statement stmt = null;
             
-            sql = "DELETE FROM cliente WHERE idcliente = " 
-                        + cliente.getId() + " ";
+            sql = "DELETE FROM cliente WHERE username = '" 
+                        + cliente.getUsername() + "' ";
             stmt = conn.createStatement();
             stmt.execute(sql);
             stmt.close();
@@ -91,14 +81,14 @@ public class DAOCliente {
         }
     }
     
-     public Cliente findById(Cliente cliente) throws SQLException {
+     public Cliente findByUsername(Cliente cliente) throws SQLException {
         try {
             Connection conn = MyConnection.getConnection();
             Statement stmt = null;
             ResultSet rs = null;
             
-            sql = "SELECT * FROM cliente WHERE idcliente = " 
-                       + cliente.getId() + " ";
+            sql = "SELECT * FROM cliente WHERE username = '" 
+                       + cliente.getUsername() + "' ";
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             if (rs != null && rs.next()) {

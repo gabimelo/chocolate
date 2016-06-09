@@ -22,7 +22,7 @@ public class DAOAdministrador {
             ResultSet rs = null;
             
             int qtd = 0;
-            sql = "SELECT count(*) FROM administrador WHERE idadministrador = " + administrador.getId() + " ";
+            sql = "SELECT count(*) FROM administrador WHERE username = '" + administrador.getUsername() + "' ";
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             if (rs != null && rs.next()) {
@@ -30,8 +30,8 @@ public class DAOAdministrador {
             }
             rs.close();
             if (qtd == 0){
-                sql = "INSERT INTO administrador"
-                        + "(nome,sobrenome,cpf,senha,endereco,telefone) VALUES ('" 
+                sql = "INSERT INTO administrador VALUES ('" 
+                        + administrador.getUsername() + "', '" 
                         + administrador.getNome() + "', '" 
                         + administrador.getSenha() + "') ";
                 try {
@@ -41,22 +41,12 @@ public class DAOAdministrador {
                     System.out.println(e);
                 }
                 stmt.close();
-                
-                sql = "SELECT idadministrador FROM administrador WHERE nome = '" 
-                        + administrador.getNome() + "' ";
-                stmt = conn.createStatement();
-                rs = stmt.executeQuery(sql);
-                if (rs != null && rs.next()) {
-                    administrador.setId(Integer.toString(rs.getInt(1)));
-                }
-                rs.close();
-                stmt.close();
             }
             else {
                 sql = "UPDATE administrador SET "
                         + "nome = '" + administrador.getNome() + "', '" 
                         + ", senha = '" + administrador.getSenha() + "') "
-                        + "WHERE idadministrador = " + administrador.getId() + " ";
+                        + "WHERE username = '" + administrador.getUsername() + "' ";
                 stmt = conn.createStatement();
                 stmt.execute(sql);
                 stmt.close();                
@@ -72,8 +62,8 @@ public class DAOAdministrador {
             Connection conn = MyConnection.getConnection();
             Statement stmt = null;
             
-            sql = "DELETE FROM administrador WHERE idadministrador = " 
-                        + administrador.getId() + " ";
+            sql = "DELETE FROM administrador WHERE username = '" 
+                        + administrador.getUsername() + "' ";
             stmt = conn.createStatement();
             stmt.execute(sql);
             stmt.close();
@@ -84,17 +74,17 @@ public class DAOAdministrador {
         }
     }
     
-     public Administrador findById(Administrador administrador) throws SQLException {
+     public Administrador findByUsername(Administrador administrador) throws SQLException {
         try {
             Connection conn = MyConnection.getConnection();
             Statement stmt = null;
             ResultSet rs = null;
             
-            sql = "SELECT * FROM administrador WHERE idadministrador = " 
-                       + administrador.getId() + " ";
+            sql = "SELECT * FROM administrador WHERE username = '" 
+                       + administrador.getUsername() + "' ";
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
-            if (rs != null && rs.next()) {
+                if (rs != null && rs.next()) {
                 administrador.setNome(rs.getString(2));
                 administrador.setSenha(rs.getString(3));
             }

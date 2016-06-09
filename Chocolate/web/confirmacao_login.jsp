@@ -19,10 +19,10 @@
             String username = request.getParameter("username");
             String senha = request.getParameter("senha");
             Cliente cliente = new Cliente();
-            cliente.setId(username);
+            cliente.setUsername(username);
             DAOCliente DAO = new DAOCliente();
             try {
-                cliente = DAO.findById(cliente);
+                cliente = DAO.findByUsername(cliente);
                 String senhareal = cliente.getSenha();
                 if (senhareal.equals(senha)) {
                     session.setAttribute("cliente", username);
@@ -32,25 +32,26 @@
                 }
             }
             catch (Exception e) {
-                out.println("Não foi possível consultar o banco de dados");
-            }
+                
+            
             if (session.getAttribute("cliente") == null){
                 Administrador administrador = new Administrador();
-                administrador.setId(username);
+                administrador.setUsername(username);
                 DAOAdministrador DAOAdm = new DAOAdministrador();
                 try {
-                    administrador = DAOAdm.findById(administrador);
+                    administrador = DAOAdm.findByUsername(administrador);
                     String senhareal = administrador.getSenha();
                     if (senhareal.equals(senha)) {
-                        session.setAttribute("cliente", username);
+                        session.setAttribute("administrador", username);
                     }
                     else {
                         out.println("Username ou senha incorretos");
                     }
                 }
-                catch (Exception e) {
+                catch (Exception ex) {
                     out.println("Não foi possível consultar o banco de dados");
                 }
+            }
             }
         %>
         <p><a href="index.jsp" />Ir para home</p>

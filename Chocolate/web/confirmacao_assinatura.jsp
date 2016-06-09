@@ -23,6 +23,10 @@
             try {
                 DAO.save(assinatura);
                 out.println("Assinatura realizada com sucesso");
+        %>
+        <p>Ir para <a href="minha_conta.jsp"> minha conta </a></p>
+        <p>Ir para <a href="index.jsp"> home </a></p>
+        <%        
             }
             catch (Exception e) {
                 out.println("Não foi possível efetivar a assinatura");

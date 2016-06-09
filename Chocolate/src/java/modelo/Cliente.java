@@ -10,7 +10,7 @@ package modelo;
  * @author gabriela
  */
 public class Cliente {
-    private String id;
+    private String username;
     private String nome;
     private String sobrenome;
     private String cpf;
@@ -18,8 +18,8 @@ public class Cliente {
     private String endereco;
     private String telefone;
     
-    public void setId(String id) {
-        this.id = id;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getSobrenome() {
@@ -38,8 +38,8 @@ public class Cliente {
         this.cpf = cpf;
     }
     
-    public String getId() {
-        return id;
+    public String getUsername() {
+        return username;
     }
 
     public String getNome() {
