@@ -13,7 +13,15 @@ public class Mensagem {
     private int id;
     private String nome;
     private String email;
-    private String mensagem;
+    private String textoMensagem;
+
+    public String getTextoMensagem() {
+        return textoMensagem;
+    }
+
+    public void setTextoMensagem(String textoMensagem) {
+        this.textoMensagem = textoMensagem;
+    }
 
     public int getId() {
         return id;
@@ -37,14 +45,6 @@ public class Mensagem {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getMensagem() {
-        return mensagem;
-    }
-
-    public void setMensagem(String mensagem) {
-        this.mensagem = mensagem;
     }
     
 }

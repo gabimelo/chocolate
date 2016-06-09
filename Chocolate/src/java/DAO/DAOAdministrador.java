@@ -33,7 +33,8 @@ public class DAOAdministrador {
                 sql = "INSERT INTO administrador VALUES ('" 
                         + administrador.getUsername() + "', '" 
                         + administrador.getNome() + "', '" 
-                        + administrador.getSenha() + "') ";
+                        + administrador.getSenha() + "', " 
+                        + administrador.getAtivo()+ ") ";
                 try {
                     stmt.execute(sql);
                 }
@@ -44,8 +45,9 @@ public class DAOAdministrador {
             }
             else {
                 sql = "UPDATE administrador SET "
-                        + "nome = '" + administrador.getNome() + "', '" 
-                        + ", senha = '" + administrador.getSenha() + "') "
+                        + "nome = '" + administrador.getNome() + "', " 
+                        + "senha = '" + administrador.getSenha() + "', " 
+                        + "ativo = " + administrador.getAtivo() +") "
                         + "WHERE username = '" + administrador.getUsername() + "' ";
                 stmt = conn.createStatement();
                 stmt.execute(sql);
@@ -87,6 +89,7 @@ public class DAOAdministrador {
                 if (rs != null && rs.next()) {
                 administrador.setNome(rs.getString(2));
                 administrador.setSenha(rs.getString(3));
+                administrador.setAtivo(rs.getString(4));
             }
             rs.close();
             stmt.close();

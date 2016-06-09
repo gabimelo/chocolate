@@ -45,7 +45,7 @@
 %>
 
         <p><a href="catalogo.jsp" /> Catálogo</p>
-        <% if(!ehCliente && !ehAdministrador) { %>
+        <% if(!ehAdministrador) { %>
             <p><a href="assinatura.jsp" /> Assinatura</p>
             
         <% } %>

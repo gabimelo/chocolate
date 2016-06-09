@@ -17,7 +17,7 @@
         <jsp:useBean id="mensagem" scope="page" class="modelo.Mensagem" />
         <jsp:setProperty name="mensagem" property="nome" />
         <jsp:setProperty name="mensagem" property="email" />
-        <jsp:setProperty name="mensagem" property="mensagem" />
+        <jsp:setProperty name="mensagem" property="textoMensagem" />
         
         <% 
             DAOMensagem DAO = new DAOMensagem();

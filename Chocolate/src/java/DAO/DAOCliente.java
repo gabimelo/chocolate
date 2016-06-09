@@ -36,7 +36,8 @@ public class DAOCliente {
                         + cliente.getCpf() + "', '" 
                         + cliente.getSenha() + "', '" 
                         + cliente.getEndereco() + "', '" 
-                        + cliente.getTelefone() + "') ";
+                        + cliente.getTelefone() + "', " 
+                        + cliente.getAtivo() + ") ";
                 try {
                     stmt.execute(sql);
                 }
@@ -47,12 +48,13 @@ public class DAOCliente {
             }
             else {
                 sql = "UPDATE cliente SET "
-                        + "nome = '" + cliente.getNome() + "', '" 
-                        + ", sobrenome = '" + cliente.getSobrenome() + "', '" 
-                        + ", cpf = '" + cliente.getCpf() + "', '" 
-                        + ", senha = '" + cliente.getSenha() + "', '" 
-                        + ", endereco = '"+ cliente.getEndereco() + "', '" 
-                        + ", telefone = '"+ cliente.getTelefone() + "') "
+                        + "nome = '" + cliente.getNome() + "', " 
+                        + "sobrenome = '" + cliente.getSobrenome() + "', " 
+                        + "cpf = '" + cliente.getCpf() + "', " 
+                        + "senha = '" + cliente.getSenha() + "', " 
+                        + "endereco = '"+ cliente.getEndereco() + "', " 
+                        + "telefone = '"+ cliente.getTelefone() + "', "
+                        + "ativo = "+ cliente.getAtivo() + " "
                         + "WHERE username = '" + cliente.getUsername() + "' ";
                 stmt = conn.createStatement();
                 stmt.execute(sql);
@@ -98,6 +100,7 @@ public class DAOCliente {
                 cliente.setSenha(rs.getString(5));
                 cliente.setEndereco(rs.getString(6));
                 cliente.setTelefone(rs.getString(7));
+                cliente.setAtivo(rs.getString(8));
             }
             rs.close();
             stmt.close();

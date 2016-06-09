@@ -13,6 +13,15 @@ public class Administrador {
     private String username;
     private String nome;
     private String senha;
+    private String ativo;
+
+    public String getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
 
     public String getUsername() {
         return username;

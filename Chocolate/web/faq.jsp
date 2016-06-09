@@ -20,7 +20,7 @@
             E-mail:
             <input type="text" name="email" value="" />
             Mensagem:
-            <textarea name="mensagem" rows="4" cols="20">
+            <textarea name="textoMensagem" rows="4" cols="20">
             </textarea>
             <input type="submit" value="OK" />
         </form>

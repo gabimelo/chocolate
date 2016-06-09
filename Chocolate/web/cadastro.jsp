@@ -12,8 +12,15 @@
         <title>Cadastro</title>
     </head>
     <body>
+        <%
+            String usernameCliente =  (String)session.getAttribute("cliente");
+            String usernameAdm  = (String)session.getAttribute("administrador");
+            if(usernameCliente == null && usernameAdm == null) { 
+        %>
         <h1>Cadastre-se</h1>
         <form name="Cadastro Form" action="confirmacao_cadastro.jsp">
+            Selecione um nome de usuário (username):
+            <input type="text" name="username" value="" />
             Nome:
             <input type="text" name="nome" value="" />
             Sobrenome:
@@ -28,5 +35,11 @@
             <input type="text" name="telefone" value="" />
             <input type="submit" value="Enviar" />
         </form>
+        <%
+            }
+            else{
+                out.println("Você já possui casdastro e está logado");
+            }
+        %>
     </body>
 </html>

@@ -17,6 +17,15 @@ public class Cliente {
     private String senha;
     private String endereco;
     private String telefone;
+    private String ativo;
+
+    public String getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
     
     public void setUsername(String username) {
         this.username = username;
