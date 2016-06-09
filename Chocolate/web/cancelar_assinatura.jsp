@@ -12,7 +12,7 @@
         <title>Confirmar Cancelamento</title>
     </head>
     <body>
-        <h1>Confirmar Cancelamento</h1>
+        <h1>Confirmar Cancelamento de Assinatura</h1>
         <p> Tem certeza que deseja cancelar sua assinatura?</p>
         <form name="Cancelar Form" action="confirmacao_cancelar_assinatura.jsp">
                 <input type="submit" value="Sim" />

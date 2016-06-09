@@ -24,7 +24,7 @@
             try {
                 cliente = DAO.findByUsername(cliente);
                 String senhareal = cliente.getSenha();
-                if (senhareal.equals(senha)) {
+                if (senhareal.equals(senha) && cliente.getAtivo().equals("1")) {
                     session.setAttribute("cliente", username);
                 }
                 else {
@@ -41,7 +41,7 @@
                 try {
                     administrador = DAOAdm.findByUsername(administrador);
                     String senhareal = administrador.getSenha();
-                    if (senhareal.equals(senha)) {
+                    if (senhareal.equals(senha) && administrador.getAtivo().equals("1")) {
                         session.setAttribute("administrador", username);
                     }
                     else {

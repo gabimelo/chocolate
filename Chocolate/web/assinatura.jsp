@@ -58,29 +58,42 @@
         }
         %>
         <form name="Assinatura Form" action="confirmacao_assinatura.jsp">
-            Selecione o tipo de chocolate:
-            Ao leite:
+            <p>Selecione o tipo de chocolate:</p>
+            <p>Ao leite:</p>
             <input type="radio" name="tipo" value="ao leite" 
                    <% if (tipo.getNome() != null && tipo.getNome().equals("ao leite")) 
                          {out.println("checked='checked'");} %> />
-            Branco:
+            <p>Branco:</p>
             <input type="radio" name="tipo" value="branco" 
                    <% if (tipo.getNome() != null && tipo.getNome().equals("branco"))
                          {out.println("checked='checked'");} %> />
-            Meio amargo:
+            <p>Meio amargo:</p>
             <input type="radio" name="tipo" value="meio amargo" 
                    <% if (tipo.getNome() != null && tipo.getNome().equals("meio amargo")) 
                          {out.println("checked='checked'");} %> />
-            Prefere nacional ou importado?
-            Nacional:
+            <p>Prefere nacional ou importado?</p>
+            <p>Nacional:</p>
             <input type="radio" name="procedencia" value="nacional" 
                    <% if (procedencia.getNome() != null && procedencia.getNome().equals("nacional")) 
                          {out.println("checked='checked'");} %> />
-            Importado:
+            <p>Importado:</p>
             <input type="radio" name="procedencia" value="importado"
                    <% if (procedencia.getNome() != null && procedencia.getNome().equals("importado")) 
                          {out.println("checked='checked'");} %>/>            
-            <input type="submit" value="Assinar" />
+            <br />
+            <%
+                if (assinatura.getAtivo() != null && assinatura.getAtivo().equals("1")){
+            %>
+                    <input type="submit" value="Modificar Assinatura" />
+            <%      
+                }
+                else{
+            %>
+                    <input type="submit" value="Assinar" />
+            <%        
+                }
+            %>
+            
         </form>
         <p>Voltar para <a href="index.jsp"> home </a></p>
         <%
