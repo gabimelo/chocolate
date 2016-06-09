@@ -43,37 +43,42 @@
         DAOProcedencia DAOProcedencia = new DAOProcedencia();
         Tipo tipo = new Tipo();
         Procedencia procedencia = new Procedencia();
-        if (idTipo != null){
+        if (assinatura.getAtivo() != null && assinatura.getAtivo().equals("1")){
             out.println("<p>Você já possui uma assinatura!</p>"); 
             out.println("<p>Preço da assinatura atual: " + assinatura.getPreco() +"</p>");
             tipo.setId(idTipo);
              tipo = DAOTipo.find(tipo);
              procedencia.setId(idProcedencia);
              procedencia = DAOProcedencia.find(procedencia);
+          %>
+            <form name="Cancelar Form" action="cancelar_assinatura.jsp">
+                <input type="submit" value="Cancelar Assinatura" />
+            </form>
+          <%
         }
         %>
         <form name="Assinatura Form" action="confirmacao_assinatura.jsp">
             Selecione o tipo de chocolate:
             Ao leite:
             <input type="radio" name="tipo" value="ao leite" 
-                   <% if (tipo.getNome().equals("ao leite")) 
+                   <% if (tipo.getNome() != null && tipo.getNome().equals("ao leite")) 
                          {out.println("checked='checked'");} %> />
             Branco:
             <input type="radio" name="tipo" value="branco" 
-                   <% if (tipo.getNome().equals("branco"))
+                   <% if (tipo.getNome() != null && tipo.getNome().equals("branco"))
                          {out.println("checked='checked'");} %> />
             Meio amargo:
             <input type="radio" name="tipo" value="meio amargo" 
-                   <% if (tipo.getNome().equals("meio amargo")) 
+                   <% if (tipo.getNome() != null && tipo.getNome().equals("meio amargo")) 
                          {out.println("checked='checked'");} %> />
             Prefere nacional ou importado?
             Nacional:
             <input type="radio" name="procedencia" value="nacional" 
-                   <% if (procedencia.getNome().equals("nacional")) 
+                   <% if (procedencia.getNome() != null && procedencia.getNome().equals("nacional")) 
                          {out.println("checked='checked'");} %> />
             Importado:
             <input type="radio" name="procedencia" value="importado"
-                   <% if (procedencia.getNome().equals("importado")) 
+                   <% if (procedencia.getNome() != null && procedencia.getNome().equals("importado")) 
                          {out.println("checked='checked'");} %>/>            
             <input type="submit" value="Assinar" />
         </form>

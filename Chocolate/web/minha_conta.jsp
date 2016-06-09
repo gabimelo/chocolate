@@ -19,5 +19,6 @@
         <p><a href="historico_entregas.jsp" />Histórico de entregas</p>
         <p><a href="historico_pagamentos.jsp" />Histórico de pagamentos</p>
         <p><a href="proxima_entrega.jsp" />Próxima entrega</p>
+        <p><a href="index.jsp" />Home</p>
     </body>
 </html>
