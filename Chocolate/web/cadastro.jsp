@@ -19,26 +19,28 @@
         %>
         <h1>Cadastre-se</h1>
         <form name="Cadastro Form" action="confirmacao_cadastro.jsp">
-            Selecione um nome de usuário (username):
+            <p>Selecione um nome de usuário (username):</p>
             <input type="text" name="username" value="" />
-            Nome:
+            <p>Nome:</p>
             <input type="text" name="nome" value="" />
-            Sobrenome:
+            <p>Sobrenome:</p>
             <input type="text" name="sobrenome" value="" />
-            CPF:
+            <p>CPF:</p>
             <input type="text" name="cpf" value="" />
-            Senha:
+            <p>Senha:</p>
             <input type="text" name="senha" value="" />
-            Endereço:
+            <p>Endereço:</p>
             <input type="text" name="endereco" value="" />
-            Telefone:
+            <p>Telefone:</p>
             <input type="text" name="telefone" value="" />
+            <br />
             <input type="submit" value="Enviar" />
         </form>
         <%
             }
             else{
-                out.println("Você já possui casdastro e está logado");
+                out.println("<p>Você já possui cadastro e está logado</p>");
+                out.println("<p><a href=\"modificar_dados_conta.jsp\">Modificar dados do cadastro</a></p>");
             }
         %>
     </body>
