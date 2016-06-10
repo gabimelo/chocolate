@@ -25,13 +25,17 @@
         
         <form name="Modificacao de Cadastro Form" action="confirmacao_modificacao_cadastro.jsp">
             <p>Nome de usuário (username):</p>
-            <input type="text" name="username" value="<% out.print(cliente.getUsername()); %>" disabled />
+            <input type="text" name="readonlyusername" value="<% out.print(cliente.getUsername()); %>" disabled />
+            <input type="hidden" name="username" value="<% out.print(cliente.getUsername()); %>" />
             <p>Nome:</p>
-            <input type="text" name="nome" value="<% out.print(cliente.getNome()); %>" disabled />
+            <input type="text" name="readonlynome" value="<% out.print(cliente.getNome()); %>" disabled />
+            <input type="hidden" name="nome" value="<% out.print(cliente.getNome()); %>" />
             <p>Sobrenome:</p>
-            <input type="text" name="sobrenome" value="<% out.print(cliente.getSobrenome()); %>" disabled />
+            <input type="text" name="readonlysobrenome" value="<% out.print(cliente.getSobrenome()); %>" disabled />
+            <input type="hidden" name="sobrenome" value="<% out.print(cliente.getSobrenome()); %>"  />
             <p>CPF:</p>
-            <input type="text" name="cpf" value="<% out.print(cliente.getCpf()); %>" disabled />
+            <input type="text" name="readonlycpf" value="<% out.print(cliente.getCpf()); %>" disabled />
+            <input type="hidden" name="cpf" value="<% out.print(cliente.getCpf()); %>"  />
             <p>Senha:</p>
             <input type="text" name="senha" value="<% out.print(cliente.getSenha()); %>" />
             <p>Endereço:</p>

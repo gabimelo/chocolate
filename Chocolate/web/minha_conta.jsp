@@ -17,7 +17,7 @@
         <p><a href="cancelar_conta.jsp">Cancelar conta</a></p>
         <p><a href="modificar_dados_conta.jsp">Modificar dados da conta</a></p>
         <p><a href="historico_entregas.jsp">Histórico de entregas</a></p>
-        <p><a href="historico_pagamentos.jsp">Histórico de pagamentos<</a>/p>
+        <p><a href="historico_pagamentos.jsp">Histórico de pagamentos</a></p>
         <p><a href="proxima_entrega.jsp">Próxima entrega</a></p>
         <p><a href="index.jsp">Home</a></p>
     </body>

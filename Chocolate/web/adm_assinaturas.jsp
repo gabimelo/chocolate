@@ -45,8 +45,18 @@
                     <td><% out.print(assinatura.getIdTipo()); %></td>
                     <td><% out.print(assinatura.getQuantidade()); %></td>
                     <td><% out.print(assinatura.getAtivo()); %></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <form name="Assinatura Form" action="adm_modificar_assinatura.jsp">
+                            <input type="hidden" name="usernameCliente" 
+                                   value="<%= assinatura.getUsernameCliente() %>">
+                            <input type="submit" value="Modificar" />
+                        </form>
+                    </td>
+                    <td><form name="Assinatura Form" action="adm_excluir_assinatura.jsp">
+                            <input type="hidden" name="usernameCliente" 
+                                   value="<%= assinatura.getUsernameCliente() %>">
+                            <input type="submit" value="Excluir" />
+                        </form></td>
                 </tr>
             <%}%>
         </table>
