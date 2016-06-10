@@ -7,6 +7,8 @@ package DAO;
 
 import connection.MyConnection;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import modelo.Assinatura;
 
 /**
@@ -109,6 +111,37 @@ public class DAOAssinatura {
         }
         catch (Exception e) {
              throw new SQLException("Erro ao buscar assinatura");
+        }
+    }
+     
+     public List<Assinatura> findAll() throws SQLException {
+        try {
+            Connection conn = MyConnection.getConnection();
+            Statement stmt = null;
+            ResultSet rs = null;
+            
+            sql = "SELECT * FROM assinatura ";
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            List<Assinatura> assinaturas = new ArrayList();
+            while (rs != null && rs.next()) {
+                Assinatura assinatura = new Assinatura();
+                assinatura.setId(rs.getString(1));
+                assinatura.setUsernameCliente(rs.getString(2));
+                assinatura.setPreco(rs.getString(3));
+                assinatura.setNumIteracao(rs.getString(4));
+                assinatura.setIdProcedencia(rs.getString(5));
+                assinatura.setIdTipo(rs.getString(6));
+                assinatura.setQuantidade(rs.getString(7));
+                assinatura.setAtivo(rs.getString(8));
+                assinaturas.add(assinatura);
+            }
+            rs.close();
+            stmt.close();
+            return assinaturas;
+        }
+        catch (Exception e) {
+             throw new SQLException("Erro ao buscar assinaturas");
         }
     }
 }

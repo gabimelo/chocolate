@@ -47,7 +47,7 @@ public class DAOAdministrador {
                 sql = "UPDATE administrador SET "
                         + "nome = '" + administrador.getNome() + "', " 
                         + "senha = '" + administrador.getSenha() + "', " 
-                        + "ativo = " + administrador.getAtivo() +") "
+                        + "ativo = " + administrador.getAtivo() +" "
                         + "WHERE username = '" + administrador.getUsername() + "' ";
                 stmt = conn.createStatement();
                 stmt.execute(sql);

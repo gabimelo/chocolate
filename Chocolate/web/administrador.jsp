@@ -15,7 +15,7 @@
         <h1>Página Administrativa</h1>
         <p><a href="adm_assinaturas.jsp">Ver assinaturas</a></p>
         <p><a href="adm_clientes.jsp">Ver clientes</a></p>
-        <p><a href="adm_produtos.jsp">Ver propdutos</a></p>
+        <p><a href="adm_produtos.jsp">Ver produtos</a></p>
         <p><a href="adm_fornecedores.jsp">Ver fornecedores</a></p>
         <p><a href="adm_solicitar_produtos.jsp">Solicitar produtos de fornecedores</a></p>
         <p><a href="adm_pagamentos.jsp">Ver pagamentos</a></p>

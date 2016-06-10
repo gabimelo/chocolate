@@ -55,7 +55,7 @@ public class DAOProduto {
                         + "idtipo = " + produto.getIdTipo() + ", "
                         + "descricao = '" + produto.getDescricao() + "', "
                         + "quantidade = " + produto.getQuantidade() + ", "
-                        + "idprocedencia = " + produto.getIdProcedencia() + ", "
+                        + "idprocedencia = " + produto.getIdProcedencia() + " "
                         + "WHERE idproduto = " + produto.getId() + " ";
                 stmt = conn.createStatement();
                 stmt.execute(sql);
@@ -121,8 +121,8 @@ public class DAOProduto {
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             List<Produto> produtos = new ArrayList();
-            Produto produto = new Produto();
             while (rs != null && rs.next()) {
+                Produto produto = new Produto();
                 produto.setId(rs.getString(1));
                 produto.setIdMarca(rs.getString(2));
                 produto.setIdFornecedor(rs.getString(3));

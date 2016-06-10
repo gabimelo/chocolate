@@ -7,6 +7,8 @@ package DAO;
 import modelo.Cliente;
 import connection.MyConnection;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -110,5 +112,34 @@ public class DAOCliente {
              throw new SQLException("Erro ao buscar cliente");
         }
     }
-    
+    public List<Cliente> findAll() throws SQLException {
+        try {
+            Connection conn = MyConnection.getConnection();
+            Statement stmt = null;
+            ResultSet rs = null;
+            
+            sql = "SELECT * FROM cliente ";
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            List<Cliente> clientes = new ArrayList();
+            while (rs != null && rs.next()) {
+                Cliente cliente = new Cliente();
+                cliente.setUsername(rs.getString(1));
+                cliente.setNome(rs.getString(2));
+                cliente.setSobrenome(rs.getString(3));
+                cliente.setCpf(rs.getString(4));
+                cliente.setSenha(rs.getString(5));
+                cliente.setEndereco(rs.getString(6));
+                cliente.setTelefone(rs.getString(7));
+                cliente.setAtivo(rs.getString(8));
+                clientes.add(cliente);
+            }
+            rs.close();
+            stmt.close();
+            return clientes;
+        }
+        catch (Exception e) {
+             throw new SQLException("Erro ao buscar clientes");
+        }
+    }
 }
