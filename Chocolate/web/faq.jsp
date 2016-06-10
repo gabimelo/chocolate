@@ -24,5 +24,6 @@
             </textarea>
             <input type="submit" value="OK" />
         </form>
+        <p><a href="index.jsp" />Home</p>
     </body>
 </html>

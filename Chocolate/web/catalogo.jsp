@@ -44,5 +44,6 @@
                 </tr>
             <%}%>
         </table>
+        <p><a href="index.jsp">Home</a></p>
     </body>
 </html>
